@@ -5,7 +5,6 @@ const authMiddleware = require("../authMiddleware");
 const router = express.Router();
 
 console.log("🔥 sessions route file LOADED");
-
 router.post("/", async (req, res) => {
   try {
     console.log("POST BODY:", req.body);
@@ -21,6 +20,8 @@ router.post("/", async (req, res) => {
       [name, email, age, formattedDate, timeSlot]
     );
 
+    console.log("✅ INSERT SUCCESS");
+
     res.json({ success: true });
 
   } catch (err) {
@@ -28,26 +29,18 @@ router.post("/", async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
-
-
-        console.log("✅ INSERT SUCCESS");
-
-        res.json({ success: true });
-
-    } catch (err) {
-        console.error(err);
-        res.status(500).json({ error: "DB insert failed" });
-    }
-});
-
 router.get("/", authMiddleware, async (req, res) => {
-    try {
-        const [rows] = await db.query("SELECT * FROM sessions ORDER BY created_at DESC");
-        res.json(rows);
-    } catch (err) {
-        console.error(err);
-        res.status(500).json({ error: "Failed to fetch sessions" });
-    }
+  try {
+    const result = await db.query(
+      "SELECT * FROM sessions ORDER BY created_at DESC"
+    );
+
+    res.json(result.rows);
+
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Failed to fetch sessions" });
+  }
 });
 
 module.exports = router;
