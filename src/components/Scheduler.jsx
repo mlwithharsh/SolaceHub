@@ -133,8 +133,17 @@ const Scheduler = () => {
                                                     onChange={(e) => setFormData({ ...formData, timeSlot: e.target.value })}
                                                 >
                                                     <option value="10:00 AM">10:00 AM</option>
+                                                    <option value="11:00 AM">10:00 AM</option>
+                                                    <option value="12:00 AM">10:00 AM</option>
+                                                    <option value="1:00 PM">10:00 AM</option>
                                                     <option value="2:00 PM">2:00 PM</option>
                                                     <option value="3:00 PM">3:00 PM</option>
+                                                    <option value="4:00 PM">10:00 AM</option>
+                                                    <option value="5:00 PM">10:00 AM</option>
+                                                    <option value="6:00 PM">10:00 AM</option>
+                                                    <option value="7:00 PM">10:00 AM</option>
+                                                    <option value="8:00 PM">10:00 AM</option>
+                                                    <option value="9:00 PM">10:00 AM</option>
                                                 </select>
                                                 <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
                                                     ▼
