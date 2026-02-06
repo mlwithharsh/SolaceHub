@@ -25,8 +25,8 @@ router.post("/", async (req, res) => {
 
 router.get("/", authMiddleware, async (req, res) => {
     try {
-        const [rows] = await db.query("SELECT * FROM advisors ORDER BY created_at DESC");
-        res.json(rows);
+        const result = await db.query("SELECT * FROM advisors ORDER BY created_at DESC");
+        res.json(result.rows);
     } catch (err) {
         console.error(err);
         res.status(500).json({ error: "Failed to fetch advisors" });
