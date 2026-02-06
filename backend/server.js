@@ -30,7 +30,7 @@ app.use(rateLimit({
 app.use(cors({
     origin: [
         "http://localhost:5173",                 // local dev
-        "https://solace-ojsb3q0la-mlwithharshs-projects.vercel.app"  // production frontend
+        "https://solace-hub.vercel.app"  // production frontend
     ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true
