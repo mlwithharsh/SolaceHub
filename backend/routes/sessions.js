@@ -7,18 +7,28 @@ const router = express.Router();
 console.log("🔥 sessions route file LOADED");
 
 router.post("/", async (req, res) => {
-    try {
-        console.log("🔥 POST HIT");
+  try {
+    console.log("POST BODY:", req.body);
 
-        const { name, email, age, date, timeSlot } = req.body;
+    const { name, email, age, date, timeSlot } = req.body;
 
-        const formattedDate = new Date(date).toISOString().split("T")[0];
+    const formattedDate = new Date(date).toISOString().split("T")[0];
 
-        await db.query(
-            `INSERT INTO sessions (name, email, age_group, session_date, time_slot)
-             VALUES ($1, $2, $3, $4, $5)`,
-            [name, email, age, formattedDate, timeSlot]
-        );
+    await db.query(
+      `INSERT INTO sessions
+       (name, email, age_group, session_date, time_slot)
+       VALUES ($1, $2, $3, $4, $5)`,
+      [name, email, age, formattedDate, timeSlot]
+    );
+
+    res.json({ success: true });
+
+  } catch (err) {
+    console.error("SESSION INSERT ERROR:", err);
+    res.status(500).json({ error: err.message });
+  }
+});
+
 
         console.log("✅ INSERT SUCCESS");
 
