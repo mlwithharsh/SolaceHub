@@ -11,7 +11,7 @@ router.post("/", async (req, res) => {
 
         await db.query(
             `INSERT INTO advisors (full_name, age, linkedin_url, email, contact_number)
-             VALUES (?, ?, ?, ?, ?)`,
+             VALUES ($1, $2, $3, $4, $5)`,
             [fullName, age, linkedin, email, contact]
         );
 
