@@ -16,7 +16,7 @@ router.post("/", async (req, res) => {
 
         await db.query(
             `INSERT INTO sessions (name, email, age_group, session_date, time_slot)
-             VALUES (?, ?, ?, ?, ?)`,
+             VALUES ($1, $2, $3, $4, $5)`,
             [name, email, age, formattedDate, timeSlot]
         );
 
