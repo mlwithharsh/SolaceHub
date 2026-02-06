@@ -36,6 +36,9 @@ app.use(cors({
     credentials: true
 }));
 
+app.use(cors());
+
+
 app.use(express.json());
 
 app.post("/api/admin/login", (req, res) => {
