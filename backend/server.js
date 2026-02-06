@@ -8,10 +8,14 @@ const db = require("./db");
 const sessionRoutes = require("./routes/sessions");
 const advisorRoutes = require("./routes/advisors");
 const app = express();
+
+app.set("trust proxy", 1);
+
 const PORT = process.env.PORT || 5000;
 const JWT_SECRET = process.env.JWT_SECRET;
 const ADMIN_EMAIL = process.env.ADMIN_EMAIL;
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD;
+
 
 // Security headers
 app.use(helmet());
