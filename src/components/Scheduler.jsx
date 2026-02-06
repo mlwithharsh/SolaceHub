@@ -17,7 +17,7 @@ const Scheduler = () => {
         e.preventDefault();
 
         try {
-            const res = await fetch("http://127.0.0.1:5000/api/sessions", {
+            const res = await fetch("https://solacehub-bg21.onrender.com/api/sessions", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

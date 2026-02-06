@@ -13,7 +13,7 @@ const AdvisorForm = () => {
         e.preventDefault();
 
         try {
-            await fetch("http://127.0.0.1:5000/api/advisors", {
+            await fetch("https://solacehub-bg21.onrender.com/api/advisors", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

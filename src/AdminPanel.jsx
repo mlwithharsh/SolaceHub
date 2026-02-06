@@ -30,10 +30,10 @@ const AdminPanel = () => {
 
             try {
                 const [sessionsRes, advisorsRes] = await Promise.all([
-                    fetch('http://127.0.0.1:5000/api/sessions', {
+                    fetch("https://solacehub-bg21.onrender.com/api/sessions", {
                         headers: { 'Authorization': `Bearer ${token}` }
                     }),
-                    fetch('http://127.0.0.1:5000/api/advisors', {
+                    fetch("https://solacehub-bg21.onrender.com/api/advisors", {
                         headers: { 'Authorization': `Bearer ${token}` }
                     })
                 ]);

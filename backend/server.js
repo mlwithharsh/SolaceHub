@@ -12,22 +12,26 @@ const PORT = process.env.PORT || 5000;
 const JWT_SECRET = process.env.JWT_SECRET;
 const ADMIN_EMAIL = process.env.ADMIN_EMAIL;
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD;
+
 // Security headers
 app.use(helmet());
 
-// Rate limit (anti-spam / brute force)
+// Rate limiting (anti brute force)
 app.use(rateLimit({
-    windowMs: 15 * 60 * 1000, // 15 minutes
+    windowMs: 15 * 60 * 1000,
     max: 100,
     message: "Too many requests, try again later"
 }));
 
 app.use(cors({
     origin: [
-        "http://localhost:5173", // dev
-        "https://your-vercel-domain.vercel.app" // production later
-    ]
+        "http://localhost:5173",                 // local dev
+        "https://your-vercel-domain.vercel.app"  // production frontend
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true
 }));
+
 app.use(express.json());
 
 app.post("/api/admin/login", (req, res) => {
@@ -53,6 +57,6 @@ app.get("/test-db", async (req, res) => {
     res.json(rows);
 });
 
-app.listen(PORT, "0.0.0.0", () => {
-    console.log(`Server running → http://localhost:${PORT}`);
+app.listen(PORT, () => {
+    console.log(`🚀 Server running on port ${PORT}`);
 });
