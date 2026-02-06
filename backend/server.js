@@ -61,7 +61,7 @@ app.get("/", (req, res) => {
 
 app.get("/test-db", async (req, res) => {
     const result = await db.query("SELECT 1 + 1 AS result");
-    const rows = result.rows;
+    res.json(result.rows);
 });
 
 app.listen(PORT, () => {
