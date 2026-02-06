@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+@layer theme {
+    :root {
+        /* Neon Theme Color Palette */
+        --color-solace-bg: #0f172a; /* Deep Navy/Slate-900 equivalent */
+        --color-solace-bg-dark: #020617; /* Slate-950 */
+        --color-solace-card: rgba(30, 41, 59, 0.7); /* Slate-800 with opacity */
+        
+        --color-solace-text-primary: #f8fafc; /* Slate-50 */
+        --color-solace-text-secondary: #94a3b8; /* Slate-400 */
+        
+        --color-solace-neon-blue: #0ea5e9; /* Sky-500 */
+        --color-solace-neon-purple: #8b5cf6; /* Violet-500 */
+        --color-solace-neon-pink: #ec4899; /* Pink-500 */
+        --color-solace-neon-green: #10b981; /* Emerald-500 */
+    }
+}
+
+@layer base {
+    body {
+        background-color: var(--color-solace-bg);
+        color: var(--color-solace-text-primary);
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        min-height: 100vh;
+        margin: 0;
+    }
+
+    ::selection {
+        background-color: var(--color-solace-neon-purple);
+        color: white;
+    }
+}
+
+@layer utilities {
+    /* Backgrounds */
+    .bg-solace-bg {
+        background-color: var(--color-solace-bg);
+    }
+    
+    /* Text Colors */
+    .text-solace-text-primary {
+        color: var(--color-solace-text-primary);
+    }
+    .text-solace-text-secondary {
+        color: var(--color-solace-text-secondary);
+    }
+    .text-solace-neon-blue {
+        color: var(--color-solace-neon-blue);
+    }
+    .text-solace-neon-purple {
+        color: var(--color-solace-neon-purple);
+    }
+    .text-solace-neon-green {
+        color: var(--color-solace-neon-green);
+    }
+
+    /* Glassmorphism */
+    .glass-panel {
+        background: rgba(30, 41, 59, 0.4);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 1rem;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+    
+    .glass-button {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: white;
+        transition: all 0.3s ease;
+    }
+    
+    .glass-button:hover {
+        background: rgba(255, 255, 255, 0.1);
+        transform: translateY(-1px);
+    }
+
+    /* Neon Effects */
+    .neon-text {
+        text-shadow: 0 0 10px rgba(139, 92, 246, 0.5), 0 0 20px rgba(139, 92, 246, 0.3);
+    }
+    
+    .shadow-neon-blue {
+        box-shadow: 0 0 15px rgba(14, 165, 233, 0.5);
+    }
+    
+    .shadow-neon-purple {
+        box-shadow: 0 0 15px rgba(139, 92, 246, 0.5);
+    }
+}
