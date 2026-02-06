@@ -1,16 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-/**
- * AdminPanel Component
- * A production-ready dashboard to monitor session bookings and advisor applications.
- * 
- * Features:
- * - Real-time data fetching from backend APIs (Protected by JWT)
- * - Stat overview cards
- * - Responsive tables for sessions and advisors
- * - Secure data loading with error handling
- */
+const API = import.meta.env.VITE_API_URL; // ✅ production safe
+
 const AdminPanel = () => {
     const [sessions, setSessions] = useState([]);
     const [advisors, setAdvisors] = useState([]);
@@ -20,7 +12,6 @@ const AdminPanel = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            setLoading(true);
             const token = localStorage.getItem('adminToken');
 
             if (!token) {
@@ -29,15 +20,19 @@ const AdminPanel = () => {
             }
 
             try {
+                setLoading(true);
+
+                const headers = {
+                    Authorization: `Bearer ${token}`,
+                    "Content-Type": "application/json"
+                };
+
                 const [sessionsRes, advisorsRes] = await Promise.all([
-                    fetch("https://solacehub-bg21.onrender.com/api/sessions", {
-                        headers: { 'Authorization': `Bearer ${token}` }
-                    }),
-                    fetch("https://solacehub-bg21.onrender.com/api/advisors", {
-                        headers: { 'Authorization': `Bearer ${token}` }
-                    })
+                    fetch(`${API}/api/sessions`, { headers }),
+                    fetch(`${API}/api/advisors`, { headers })
                 ]);
 
+                // expired token
                 if (sessionsRes.status === 401 || advisorsRes.status === 401) {
                     localStorage.removeItem('adminToken');
                     navigate('/admin-login');
@@ -48,15 +43,14 @@ const AdminPanel = () => {
                     throw new Error('Failed to fetch data from the server');
                 }
 
-                const [sessionsData, advisorsData] = await Promise.all([
-                    sessionsRes.json(),
-                    advisorsRes.json()
-                ]);
+                const sessionsData = await sessionsRes.json();
+                const advisorsData = await advisorsRes.json();
 
                 setSessions(sessionsData);
                 setAdvisors(advisorsData);
+
             } catch (err) {
-                console.error('Error fetching admin data:', err);
+                console.error(err);
                 setError(err.message);
             } finally {
                 setLoading(false);
@@ -96,7 +90,6 @@ const AdminPanel = () => {
             </div>
         );
     }
-
     return (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
             <header className="mb-12">
