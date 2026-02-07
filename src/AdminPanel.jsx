@@ -120,7 +120,7 @@ const AdminPanel = () => {
                             <tr className="bg-slate-800/50">
                                 <th className="px-6 py-4 text-xs font-bold text-solace-neon-green uppercase tracking-widest">Name</th>
                                 <th className="px-6 py-4 text-xs font-bold text-solace-neon-green uppercase tracking-widest">Email</th>
-                                <th className="px-6 py-4 text-xs font-bold text-solace-neon-green uppercase tracking-widest">Date / Time</th>
+                                <th className="px-6 py-4 text-xs font-bold text-solace-neon-green uppercase tracking-widest">Phone</th>
                                 <th className="px-6 py-4 text-xs font-bold text-solace-neon-green uppercase tracking-widest">Date / Time</th>
                                 <th className="px-6 py-4 text-xs font-bold text-solace-neon-green uppercase tracking-widest text-right">Created</th>
                             </tr>
@@ -130,6 +130,7 @@ const AdminPanel = () => {
                                 <tr key={s.id} className="hover:bg-white/[0.03] transition-colors">
                                     <td className="px-6 py-4 text-sm font-medium text-white">{s.name}</td>
                                     <td className="px-6 py-4 text-sm text-solace-text-secondary">{s.email}</td>
+                                    <td className="px-6 py-4 text-sm text-solace-text-secondary">{s.phone}</td>
                                     <td className="px-6 py-4 text-sm text-white/70">{s.session_date} | {s.time_slot}</td>
                                     <td className="px-6 py-4 text-xs text-slate-500 text-right">{formatDate(s.created_at)}</td>
                                 </tr>
