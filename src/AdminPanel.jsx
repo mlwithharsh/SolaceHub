@@ -121,6 +121,7 @@ const AdminPanel = () => {
                                 <th className="px-6 py-4 text-xs font-bold text-solace-neon-green uppercase tracking-widest">Name</th>
                                 <th className="px-6 py-4 text-xs font-bold text-solace-neon-green uppercase tracking-widest">Email</th>
                                 <th className="px-6 py-4 text-xs font-bold text-solace-neon-green uppercase tracking-widest">Date / Time</th>
+                                <th className="px-6 py-4 text-xs font-bold text-solace-neon-green uppercase tracking-widest">Date / Time</th>
                                 <th className="px-6 py-4 text-xs font-bold text-solace-neon-green uppercase tracking-widest text-right">Created</th>
                             </tr>
                         </thead>
