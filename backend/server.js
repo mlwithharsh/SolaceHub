@@ -27,16 +27,19 @@ app.use(rateLimit({
     message: "Too many requests, try again later"
 }));
 
-app.use(cors({
+const corsOptions = {
     origin: [
-        "http://localhost:5173",                 // local dev
-        "https://solace-hub.vercel.app"  // production frontend
+        "http://localhost:5173",
+        "https://solace-hub.vercel.app"
     ],
-    methods: ["GET", "POST", "PUT", "DELETE"],
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true
-}));
+};
+;
 
-app.use(cors());
+app.use(cors(corsOptions));
+app.options("*", cors(corsOptions)); 
 
 
 app.use(express.json());
