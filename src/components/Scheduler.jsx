@@ -67,7 +67,7 @@ const Scheduler = () => {
                                         <input
                                             type="text"
                                             required
-                                            className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-slate-50"
+                                            className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-slate-50 text-slate-900 placeholder:text-slate-400 focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all"
                                             value={formData.name}
                                             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                                         />
@@ -81,7 +81,7 @@ const Scheduler = () => {
                                         <input
                                             type="email"
                                             required
-                                            className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-slate-50"
+                                            className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-slate-50 text-slate-900 placeholder:text-slate-400 focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all"
                                             value={formData.email}
                                             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                                         />
@@ -108,7 +108,7 @@ const Scheduler = () => {
                                             Age Group
                                         </label>
                                         <select
-                                            className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-slate-50"
+                                            className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-slate-50 text-slate-900 focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all appearance-none cursor-pointer"
                                             value={formData.age}
                                             onChange={(e) => setFormData({ ...formData, age: e.target.value })}
                                         >
@@ -124,12 +124,12 @@ const Scheduler = () => {
                                         <DatePicker
                                             selected={formData.date}
                                             onChange={(date) => setFormData({ ...formData, date })}
-                                            className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-slate-50"
+                                            className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-slate-50 text-slate-900 focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all cursor-pointer"
                                             minDate={new Date()}
                                         />
 
                                         <select
-                                            className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-slate-50"
+                                            className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-slate-50 text-slate-900 focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all cursor-pointer"
                                             value={formData.timeSlot}
                                             onChange={(e) => setFormData({ ...formData, timeSlot: e.target.value })}
                                         >
@@ -146,11 +146,14 @@ const Scheduler = () => {
                                             <option value="8:00 PM">8:00 PM</option>
                                             <option value="9:00 PM">9:00 PM</option>
                                         </select>
+                                        <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
+                                            ▼
+                                        </div>
                                     </div>
 
                                     <button
                                         type="submit"
-                                        className="w-full py-4 font-bold rounded-xl mt-4 bg-teal-600 hover:bg-teal-700 text-white"
+                                        className="w-full py-4 font-bold rounded-xl mt-4 bg-teal-600 hover:bg-teal-700 text-white shadow-md hover:shadow-lg transition-all"
                                     >
                                         Schedule Now
                                     </button>
