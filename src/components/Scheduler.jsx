@@ -58,8 +58,6 @@ const Scheduler = () => {
                                 </div>
                             ) : (
                                 <form onSubmit={handleSubmit} className="space-y-6">
-
-                                    {/* Name */}
                                     <div>
                                         <label className="block text-sm font-medium text-slate-600 mb-2">
                                             Full Name
@@ -72,8 +70,6 @@ const Scheduler = () => {
                                             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                                         />
                                     </div>
-
-                                    {/* Email */}
                                     <div>
                                         <label className="block text-sm font-medium text-slate-600 mb-2">
                                             Email Address
@@ -86,8 +82,6 @@ const Scheduler = () => {
                                             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                                         />
                                     </div>
-
-                                    {/* ✅ WhatsApp Number (NEW SECTION ONLY) */}
                                     <div>
                                         <label className="block text-sm font-medium text-slate-600 mb-2">
                                             WhatsApp / Contact Number
@@ -101,8 +95,6 @@ const Scheduler = () => {
                                             onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                                         />
                                     </div>
-
-                                    {/* Age */}
                                     <div>
                                         <label className="block text-sm font-medium text-slate-600 mb-2">
                                             Age Group
@@ -118,8 +110,6 @@ const Scheduler = () => {
                                             <option value="45+">45+</option>
                                         </select>
                                     </div>
-
-                                    {/* Date + Time */}
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                         <DatePicker
                                             selected={formData.date}
