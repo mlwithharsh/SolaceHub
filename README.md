@@ -1,40 +1,85 @@
-# Solace Hub
+# 🌿 Solace Hub
+### AI-Powered Emotional Support & Human Guidance Platform
 
-Full stack mental health support platform built with React + Express + MySQL.
+Solace Hub is a full-stack web application that helps people book **safe, private, and supportive sessions** with verified advisors.
 
-## Features
+It combines:
+- 🧠 Human empathy (real advisors)
+- ⚡ Fast scheduling
+- 🔐 Secure admin dashboard
+- ☁️ Cloud backend + managed database
 
-- 🔒 Admin login + JWT authentication
-- 📅 Session scheduling
-- 👥 Advisor management
-- 🔐 Secure API with rate limiting
-- 🛡️ Helmet + CORS + rate limiting
+Built for real users from day one. Soft-launch ready. Production ready.
 
-## Tech Stack
+---
 
-- **Frontend**: React + Vite
-- **Backend**: Express + MySQL
-- **Security**: JWT, Helmet, Rate Limiting
+# 🚀 Live Links
 
-## Setup
+Frontend  
+👉 https://solace-hub.vercel.app  
 
-### Backend
+Backend API  
+👉 https://solacehub-bg21.onrender.com  
 
-```bash
-cd backend
-npm install
-cp .env.example .env
-# Edit .env with your MySQL credentials
-node server.js
-```
+---
 
-### Frontend
+# ✨ Features
 
-```bash
-npm install
-npm run dev
-```
+## 👤 User Side
+- Book sessions in seconds
+- Date picker + time slot selection (9AM → 9PM)
+- Email + WhatsApp contact capture
+- Mobile responsive UI
+- Instant confirmation
 
-## License
+## 🧑‍⚕️ Advisor Side
+- Advisor application form
+- LinkedIn + contact details
+- Stored securely in database
 
-MIT © 2026 Harsh Sharma
+## 🔐 Admin Portal
+- JWT authentication
+- Protected routes
+- View all sessions
+- View advisor applications
+- Real-time dashboard stats
+- Secure access only
+
+## ⚙️ Backend
+- Express.js REST API
+- Rate limiting
+- Helmet security headers
+- CORS protection
+- JWT auth middleware
+- Supabase PostgreSQL database
+- Cloud deployment
+
+---
+
+# 🧱 Tech Stack
+
+## Frontend
+- React
+- Vite
+- TailwindCSS
+- React DatePicker
+- Fetch API
+
+## Backend
+- Node.js
+- Express.js
+- PostgreSQL (Supabase)
+- JWT Authentication
+- Helmet
+- Express Rate Limit
+- CORS
+
+## Deployment
+- Frontend → Vercel
+- Backend → Render
+- Database → Supabase
+
+---
+
+# 📂 Project Structure
+
