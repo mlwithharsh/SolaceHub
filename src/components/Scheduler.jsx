@@ -6,16 +6,19 @@ const Scheduler = () => {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
-        phone: '',   // ✅ ADDED
+        phone: '', 
         age: '25-34',
         date: new Date(),
         timeSlot: '10:00 AM'
     });
 
     const [submitted, setSubmitted] = useState(false);
+    const [loading, setLoading] = useState(false);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if (loading) return;
+        setLoading(true);
 
         try {
             const res = await fetch("https://solacehub-bg21.onrender.com/api/sessions", {
@@ -33,6 +36,8 @@ const Scheduler = () => {
         } catch (err) {
             console.error(err);
             alert("Failed to schedule session. Please ensure backend is running.");
+        }finally {
+            setLoading(false);
         }
     };
 
@@ -143,9 +148,10 @@ const Scheduler = () => {
 
                                     <button
                                         type="submit"
+                                        disabled={loading}
                                         className="w-full py-4 font-bold rounded-xl mt-4 bg-teal-600 hover:bg-teal-700 text-white shadow-md hover:shadow-lg transition-all"
                                     >
-                                        Schedule Now
+                                        {loading ? "Submitting..." : "Schedule Now"}
                                     </button>
 
                                 </form>
