@@ -9,8 +9,11 @@ const AdvisorForm = () => {
         contact: ''
     });
 
+    const [loading, setLoading] = useState(false);
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if (loading) return;
+        setLoading(true);
 
         try {
             await fetch("https://solacehub-bg21.onrender.com/api/advisors", {
@@ -26,6 +29,8 @@ const AdvisorForm = () => {
         } catch (err) {
             console.error(err);
             alert("Submission failed");
+        }finally {
+            setLoading(false);
         }
     };
 
@@ -116,9 +121,10 @@ const AdvisorForm = () => {
                         <div className="text-center">
                             <button
                                 type="submit"
+                                disabled={loading}
                                 className="px-10 py-4 font-bold rounded-full bg-teal-600 hover:bg-teal-700 text-white shadow-lg transition-all transform hover:-translate-y-1"
                             >
-                                Apply as Advisor
+                                {loading ? "Submitting..." : "Apply as Advisor"}
                             </button>
                         </div>
                     </form>
