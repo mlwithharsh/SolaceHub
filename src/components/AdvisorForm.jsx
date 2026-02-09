@@ -4,9 +4,9 @@ const AdvisorForm = () => {
     const [formData, setFormData] = useState({
         fullName: '',
         age: '',
-        gender: '',
         linkedin: '',
         email: '',
+        gender: '',
         contact: ''
     });
     const [submitted, setSubmitted] = useState(false);
