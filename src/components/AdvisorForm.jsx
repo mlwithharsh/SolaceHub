@@ -159,9 +159,11 @@ const AdvisorForm = () => {
                                 <div className="text-center pt-4">
                                     <button
                                         type="submit"
-                                        className="px-10 py-4 font-bold rounded-full bg-teal-600 hover:bg-teal-700 text-white shadow-lg transition-all transform hover:-translate-y-1"
-                                    >
-                                        Apply as Advisor
+                                        disabled={loading}
+                                        className={`w-full py-4 font-bold rounded-xl mt-4 text-white shadow-md transition-all
+                                        ${loading? "bg-slate-400 cursor-not-allowed": "bg-teal-600 hover:bg-teal-700 hover:shadow-lg"}`}
+                                        >
+                                        {loading ? "Submitting..." : "Apply as Advisor"}
                                     </button>
                                 </div>
                             </form>
