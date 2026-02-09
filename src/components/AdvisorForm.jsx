@@ -53,7 +53,7 @@ const AdvisorForm = () => {
                     <form onSubmit={handleSubmit} className="bg-white p-8 md:p-10 rounded-2xl shadow-xl border border-slate-100">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                             <div>
-                                <label className="block text-sm font-medium text-slate-600 mb-2">Full Name</label>
+                                <label className="block text-sm font-medium text-slate-600 mb-2">Full Name <span className="text-red-500">*</span></label>
                                 <input
                                     type="text"
                                     name="fullName"
@@ -65,7 +65,7 @@ const AdvisorForm = () => {
                                 />
                             </div>
                             <div>
-                                <label className="block text-sm font-medium text-slate-600 mb-2">Age</label>
+                                <label className="block text-sm font-medium text-slate-600 mb-2">Age <span className="text-red-500">*</span></label>
                                 <input
                                     type="number"
                                     name="age"
@@ -79,7 +79,7 @@ const AdvisorForm = () => {
                         </div>
 
                         <div className="mb-6">
-                            <label className="block text-sm font-medium text-slate-600 mb-2">LinkedIn Profile URL</label>
+                            <label className="block text-sm font-medium text-slate-600 mb-2">LinkedIn Profile URL <span className="text-red-500">*</span></label>
                             <input
                                 type="url"
                                 name="linkedin"
@@ -93,7 +93,7 @@ const AdvisorForm = () => {
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                             <div>
-                                <label className="block text-sm font-medium text-slate-600 mb-2">Email Address</label>
+                                <label className="block text-sm font-medium text-slate-600 mb-2">Email Address <span className="text-red-500">*</span></label>
                                 <input
                                     type="email"
                                     name="email"
@@ -105,7 +105,7 @@ const AdvisorForm = () => {
                                 />
                             </div>
                             <div>
-                                <label className="block text-sm font-medium text-slate-600 mb-2">Contact Number</label>
+                                <label className="block text-sm font-medium text-slate-600 mb-2">Whatsapp/Contact Number <span className="text-red-500">*</span></label>
                                 <input
                                     type="tel"
                                     name="contact"
