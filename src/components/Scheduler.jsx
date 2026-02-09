@@ -116,13 +116,13 @@ const Scheduler = () => {
                                             <option value="45+">45+</option>
                                         </select>
                                     </div>
-                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div>
                                         <label className="block text-sm font-medium text-slate-600 mb-2">
                                             Gender *
                                         </label>
                                         <select
                                             required
-                                            className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-slate-50 text-slate-900 focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all cursor-pointer"
+                                            className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-slate-50 text-slate-900 focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all appearance-none cursor-pointer"
                                             value={formData.gender}
                                             onChange={(e) => setFormData({ ...formData, gender: e.target.value })}
                                             >
