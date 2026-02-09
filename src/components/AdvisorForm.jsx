@@ -146,7 +146,7 @@ const AdvisorForm = () => {
                                         <label className="block text-sm font-medium text-slate-600 mb-2">Contact Number <span className="text-red-500">*</span></label>
                                         <input
                                             type="tel"
-                                            name="contact"
+                                            name="phone"
                                             required
                                             value={formData.phone}
                                             onChange={handleChange}
