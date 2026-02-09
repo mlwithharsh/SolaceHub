@@ -132,7 +132,7 @@ const AdminPanel = () => {
                                     <td className="px-6 py-4 text-sm font-medium text-white">{s.name}</td>
                                     <td className="px-6 py-4 text-sm text-solace-text-secondary">{s.email}</td>
                                     <td className="px-6 py-4 text-sm text-solace-text-secondary">{s.phone}</td>
-                                    td className="px-6 py-4 text-sm text-solace-text-secondary">{s.gender}</td>
+                                    <td className="px-6 py-4 text-sm text-solace-text-secondary">{s.gender}</td>
                                     <td className="px-6 py-4 text-sm text-white/70">{s.session_date} | {s.time_slot}</td>
                                     <td className="px-6 py-4 text-xs text-slate-500 text-right">{formatDate(s.created_at)}</td>
                                 </tr>
