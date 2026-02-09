@@ -155,6 +155,8 @@ const AdminPanel = () => {
                             <tr className="bg-slate-800/50">
                                 <th className="px-6 py-4 text-xs font-bold text-solace-neon-green uppercase tracking-widest">Full Name</th>
                                 <th className="px-6 py-4 text-xs font-bold text-solace-neon-green uppercase tracking-widest">Email</th>
+                                <th className="px-6 py-4 text-xs font-bold text-solace-neon-green uppercase tracking-widest">Gender</th>
+                                <th className="px-6 py-4 text-xs font-bold text-solace-neon-green uppercase tracking-widest">Phone</th>
                                 <th className="px-6 py-4 text-xs font-bold text-solace-neon-green uppercase tracking-widest">LinkedIn</th>
                                 <th className="px-6 py-4 text-xs font-bold text-solace-neon-green uppercase tracking-widest text-right">Applied</th>
                             </tr>
