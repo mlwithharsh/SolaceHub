@@ -67,7 +67,7 @@ const Scheduler = () => {
                                 <form onSubmit={handleSubmit} className="space-y-6">
                                     <div>
                                         <label htmlFor="name" className="block text-sm font-medium text-slate-600 mb-2">
-                                            Full Name
+                                            Full Name <span className="text-red-500">*</span>
                                         </label>
                                         <input
                                             type="text"
@@ -82,7 +82,7 @@ const Scheduler = () => {
 
                                     <div>
                                         <label htmlFor="email" className="block text-sm font-medium text-slate-600 mb-2">
-                                            Email Address
+                                            Email Address <span className="text-red-500">*</span>
                                         </label>
                                         <input
                                             type="email"
@@ -112,7 +112,7 @@ const Scheduler = () => {
 
                                     <div>
                                         <label htmlFor="age" className="block text-sm font-medium text-slate-600 mb-2">
-                                            Age Group
+                                            Age Group <span className="text-red-500">*</span>
                                         </label>
                                         <div className="relative">
                                             <select
@@ -159,7 +159,7 @@ const Scheduler = () => {
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                         <div>
                                             <label className="block text-sm font-medium text-slate-600 mb-2">
-                                                Preferred Date
+                                                Preferred Date <span className="text-red-500">*</span>
                                             </label>
                                             <DatePicker
                                                 selected={formData.date}
@@ -170,7 +170,7 @@ const Scheduler = () => {
                                         </div>
                                         <div>
                                             <label htmlFor="time" className="block text-sm font-medium text-slate-600 mb-2">
-                                                Time Slot
+                                                Time Slot <span className="text-red-500">*</span>
                                             </label>
                                             <div className="relative">
                                                 <select
