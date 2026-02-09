@@ -4,16 +4,14 @@ const AdvisorForm = () => {
     const [formData, setFormData] = useState({
         fullName: '',
         age: '',
+        gender: '',
         linkedin: '',
         email: '',
         contact: ''
     });
 
-    const [loading, setLoading] = useState(false);
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (loading) return;
-        setLoading(true);
 
         try {
             await fetch("https://solacehub-bg21.onrender.com/api/advisors", {
@@ -29,8 +27,6 @@ const AdvisorForm = () => {
         } catch (err) {
             console.error(err);
             alert("Submission failed");
-        }finally {
-            setLoading(false);
         }
     };
 
@@ -79,6 +75,25 @@ const AdvisorForm = () => {
                         </div>
 
                         <div className="mb-6">
+                            <label className="block text-sm font-medium text-slate-600 mb-2">
+                                Gender <span className="text-red-500">*</span>
+                            </label>
+                            <select
+                                name="gender"
+                                required
+                                value={formData.gender}
+                                onChange={handleChange}
+                                className="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-300 text-slate-900 focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all"
+                            >
+                                <option value="">Select Gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                                <option value="Prefer not to say">Prefer not to say</option>
+                            </select>
+                        </div>
+
+                        <div className="mb-6">
                             <label className="block text-sm font-medium text-slate-600 mb-2">LinkedIn Profile URL <span className="text-red-500">*</span></label>
                             <input
                                 type="url"
@@ -105,7 +120,7 @@ const AdvisorForm = () => {
                                 />
                             </div>
                             <div>
-                                <label className="block text-sm font-medium text-slate-600 mb-2">Whatsapp/Contact Number <span className="text-red-500">*</span></label>
+                                <label className="block text-sm font-medium text-slate-600 mb-2">Contact Number <span className="text-red-500">*</span></label>
                                 <input
                                     type="tel"
                                     name="contact"
@@ -121,10 +136,9 @@ const AdvisorForm = () => {
                         <div className="text-center">
                             <button
                                 type="submit"
-                                disabled={loading}
                                 className="px-10 py-4 font-bold rounded-full bg-teal-600 hover:bg-teal-700 text-white shadow-lg transition-all transform hover:-translate-y-1"
                             >
-                                {loading ? "Submitting..." : "Apply as Advisor"}
+                                Apply as Advisor
                             </button>
                         </div>
                     </form>
