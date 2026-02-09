@@ -8,6 +8,7 @@ const Scheduler = () => {
         email: '',
         phone: '', 
         age: '25-34',
+        gender: '',
         date: new Date(),
         timeSlot: '10:00 AM'
     });
@@ -65,7 +66,7 @@ const Scheduler = () => {
                                 <form onSubmit={handleSubmit} className="space-y-6">
                                     <div>
                                         <label className="block text-sm font-medium text-slate-600 mb-2">
-                                            Full Name
+                                            Full Name *
                                         </label>
                                         <input
                                             type="text"
@@ -77,7 +78,7 @@ const Scheduler = () => {
                                     </div>
                                     <div>
                                         <label className="block text-sm font-medium text-slate-600 mb-2">
-                                            Email Address
+                                            Email Address *
                                         </label>
                                         <input
                                             type="email"
@@ -89,7 +90,7 @@ const Scheduler = () => {
                                     </div>
                                     <div>
                                         <label className="block text-sm font-medium text-slate-600 mb-2">
-                                            WhatsApp / Contact Number
+                                            WhatsApp / Contact Number *
                                         </label>
                                         <input
                                             type="tel"
@@ -102,7 +103,7 @@ const Scheduler = () => {
                                     </div>
                                     <div>
                                         <label className="block text-sm font-medium text-slate-600 mb-2">
-                                            Age Group
+                                            Age Group *
                                         </label>
                                         <select
                                             className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-slate-50 text-slate-900 focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all appearance-none cursor-pointer"
@@ -115,6 +116,24 @@ const Scheduler = () => {
                                             <option value="45+">45+</option>
                                         </select>
                                     </div>
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                        <label className="block text-sm font-medium text-slate-600 mb-2">
+                                            Gender *
+                                        </label>
+                                        <select
+                                            required
+                                            className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-slate-50 text-slate-900 focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all cursor-pointer"
+                                            value={formData.gender}
+                                            onChange={(e) => setFormData({ ...formData, gender: e.target.value })}
+                                            >
+                                            <option value="">Select Gender</option>
+                                            <option value="Male">Male</option>
+                                            <option value="Female">Female</option>
+                                            <option value="Other">Other</option>
+                                            <option value="Prefer not to say">Prefer not to say</option>
+                                        </select>
+                                    </div>
+
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                         <DatePicker
                                             selected={formData.date}
@@ -145,7 +164,11 @@ const Scheduler = () => {
                                             ▼
                                         </div>
                                     </div>
-
+                                    <p className="text-xs text-slate-500 text-center leading-relaxed bg-slate-50 border border-slate-200 rounded-lg p-3">
+                                        <strong>Note:</strong> Submission may take a few moments. Please be patient while we process your request. 
+                                        After confirmation, our community details and connection information will be shared with you via email or text message. 
+                                        Thank you for registering with Solace Hub.
+                                    </p>
                                     <button
                                         type="submit"
                                         disabled={loading}
