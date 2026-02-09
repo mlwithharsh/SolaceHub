@@ -14,6 +14,7 @@ const AdvisorForm = () => {
     
     const handleSubmit = async (e) => {
         e.preventDefault();
+        
 
         try {
             await fetch("https://solacehub-bg21.onrender.com/api/advisors", {
@@ -29,6 +30,8 @@ const AdvisorForm = () => {
         } catch (err) {
             console.error(err);
             alert("Submission failed");
+        }finally {
+            setLoading(false);
         }
     };
 
