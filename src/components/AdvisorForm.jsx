@@ -7,7 +7,7 @@ const AdvisorForm = () => {
         linkedin: '',
         email: '',
         gender: '',
-        contact: ''
+        phone: ''
     });
     const [submitted, setSubmitted] = useState(false);
     const [loading, setLoading] = useState(false)
@@ -148,7 +148,7 @@ const AdvisorForm = () => {
                                             type="tel"
                                             name="contact"
                                             required
-                                            value={formData.contact}
+                                            value={formData.phone}
                                             onChange={handleChange}
                                             className="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-300 text-slate-900 focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all"
                                             placeholder="+1 (555) 000-0000"
