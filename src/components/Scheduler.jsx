@@ -171,7 +171,7 @@ const Scheduler = () => {
                                                 <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
                                                     ▼
                                                 </div>
-                                    </div>
+                                            </div>
                                     <p className="text-xs text-slate-500 text-center leading-relaxed bg-slate-50 border border-slate-200 rounded-lg p-3">
                                         <strong>Note:</strong> Submission may take a few moments. Please be patient while we process your request. 
                                         After confirmation, our community details and connection information will be shared with you via email or text message. 
