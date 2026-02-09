@@ -66,7 +66,7 @@ const Scheduler = () => {
                                 <form onSubmit={handleSubmit} className="space-y-6">
                                     <div>
                                         <label className="block text-sm font-medium text-slate-600 mb-2">
-                                            Full Name *
+                                            Full Name <span className="text-red-500">*</span>
                                         </label>
                                         <input
                                             type="text"
@@ -78,7 +78,7 @@ const Scheduler = () => {
                                     </div>
                                     <div>
                                         <label className="block text-sm font-medium text-slate-600 mb-2">
-                                            Email Address *
+                                            Email Address <span className="text-red-500">*</span>
                                         </label>
                                         <input
                                             type="email"
@@ -90,7 +90,7 @@ const Scheduler = () => {
                                     </div>
                                     <div>
                                         <label className="block text-sm font-medium text-slate-600 mb-2">
-                                            WhatsApp / Contact Number *
+                                            WhatsApp / Contact Number <span className="text-red-500">*</span>
                                         </label>
                                         <input
                                             type="tel"
@@ -103,7 +103,7 @@ const Scheduler = () => {
                                     </div>
                                     <div>
                                         <label className="block text-sm font-medium text-slate-600 mb-2">
-                                            Age Group *
+                                            Age Group <span className="text-red-500">*</span>
                                         </label>
                                         <select
                                             className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-slate-50 text-slate-900 focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all appearance-none cursor-pointer"
@@ -118,7 +118,7 @@ const Scheduler = () => {
                                     </div>
                                     <div>
                                         <label className="block text-sm font-medium text-slate-600 mb-2">
-                                            Gender *
+                                            Gender <span className="text-red-500">*</span>
                                         </label>
                                         <select
                                             required
@@ -135,31 +135,41 @@ const Scheduler = () => {
                                     </div>
 
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                        <label className="block text-sm font-medium text-slate-600 mb-2">
+                                            Preferred Date <span className="text-red-500">*</span>
+                                        </label>
+
                                         <DatePicker
                                             selected={formData.date}
                                             onChange={(date) => setFormData({ ...formData, date })}
                                             className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-slate-50 text-slate-900 focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all cursor-pointer"
                                             minDate={new Date()}
                                         />
-
-                                        <select
-                                            className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-slate-50 text-slate-900 focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all cursor-pointer"
-                                            value={formData.timeSlot}
-                                            onChange={(e) => setFormData({ ...formData, timeSlot: e.target.value })}
-                                        >
-                                            <option value="10:00 AM">10:00 AM</option>
-                                            <option value="11:00 AM">11:00 AM</option>
-                                            <option value="12:00 PM">12:00 PM</option>
-                                            <option value="1:00 PM">1:00 PM</option>
-                                            <option value="2:00 PM">2:00 PM</option>
-                                            <option value="3:00 PM">3:00 PM</option>
-                                            <option value="4:00 PM">4:00 PM</option>
-                                            <option value="5:00 PM">5:00 PM</option>
-                                            <option value="6:00 PM">6:00 PM</option>
-                                            <option value="7:00 PM">7:00 PM</option>
-                                            <option value="8:00 PM">8:00 PM</option>
-                                            <option value="9:00 PM">9:00 PM</option>
-                                        </select>
+                                        </div>
+                                        <div>
+                                            <label htmlFor="time" className="block text-sm font-medium text-slate-600 mb-2">
+                                                Time Slot <span className="text-red-500">*</span>
+                                            </label>
+                                            <div className="relative">
+                                                <select
+                                                    id="time"
+                                                    className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-slate-50 text-slate-900 focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all appearance-none cursor-pointer"
+                                                    value={formData.timeSlot}
+                                                    onChange={(e) => setFormData({ ...formData, timeSlot: e.target.value })}
+                                                >
+                                                    <option value="10:00 AM">10:00 AM</option>
+                                                    <option value="11:00 AM">11:00 AM</option>
+                                                    <option value="12:00 AM">12:00 AM</option>
+                                                    <option value="1:00 PM">1:00 PM</option>
+                                                    <option value="2:00 PM">2:00 PM</option>
+                                                    <option value="3:00 PM">3:00 PM</option>
+                                                    <option value="4:00 PM">4:00 PM</option>
+                                                    <option value="5:00 PM">5:00 PM</option>
+                                                    <option value="6:00 PM">6:00 PM</option>
+                                                    <option value="7:00 PM">7:00 PM</option>
+                                                    <option value="8:00 PM">8:00 PM</option>
+                                                    <option value="9:00 PM">9:00 PM</option>
+                                                </select>
                                         <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
                                             ▼
                                         </div>
