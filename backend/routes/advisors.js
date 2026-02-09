@@ -7,12 +7,12 @@ console.log("🔥 advisors route file LOADED");
 
 router.post("/", async (req, res) => {
     try {
-        const { fullName, age, linkedin, email, contact } = req.body;
+        const { fullName, age, linkedin, email,gender , contact } = req.body;
 
         await db.query(
-            `INSERT INTO advisors (full_name, age, linkedin_url, email, contact_number)
-             VALUES ($1, $2, $3, $4, $5)`,
-            [fullName, age, linkedin, email, contact]
+            `INSERT INTO advisors (full_name, age, linkedin_url, email,gender, contact_number)
+             VALUES ($1, $2, $3, $4, $5 ,$6)`,
+            [fullName, age, linkedin, email, gender,contact]
         );
 
         res.json({ success: true });
