@@ -6,9 +6,9 @@ const Scheduler = () => {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
-        phone: '', 
-        age: '25-34',
+        phone: '',
         gender: '',
+        age: '25-34',
         date: new Date(),
         timeSlot: '10:00 AM'
     });
@@ -16,11 +16,12 @@ const Scheduler = () => {
     const [submitted, setSubmitted] = useState(false);
     const [loading, setLoading] = useState(false);
 
+    // react connection with db and backend 
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (loading) return;
-        setLoading(true);
 
+        setLoading(true);
         try {
             const res = await fetch("https://solacehub-bg21.onrender.com/api/sessions", {
                 method: "POST",
@@ -37,7 +38,7 @@ const Scheduler = () => {
         } catch (err) {
             console.error(err);
             alert("Failed to schedule session. Please ensure backend is running.");
-        }finally {
+        } finally {
             setLoading(false);
         }
     };
@@ -65,35 +66,42 @@ const Scheduler = () => {
                             ) : (
                                 <form onSubmit={handleSubmit} className="space-y-6">
                                     <div>
-                                        <label className="block text-sm font-medium text-slate-600 mb-2">
-                                            Full Name <span className="text-red-500">*</span>
+                                        <label htmlFor="name" className="block text-sm font-medium text-slate-600 mb-2">
+                                            Full Name
                                         </label>
                                         <input
                                             type="text"
+                                            id="name"
                                             required
                                             className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-slate-50 text-slate-900 placeholder:text-slate-400 focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all"
+                                            placeholder="Enter your name"
                                             value={formData.name}
                                             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                                         />
                                     </div>
+
                                     <div>
-                                        <label className="block text-sm font-medium text-slate-600 mb-2">
-                                            Email Address <span className="text-red-500">*</span>
+                                        <label htmlFor="email" className="block text-sm font-medium text-slate-600 mb-2">
+                                            Email Address
                                         </label>
                                         <input
                                             type="email"
+                                            id="email"
                                             required
                                             className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-slate-50 text-slate-900 placeholder:text-slate-400 focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all"
+                                            placeholder="you@example.com"
                                             value={formData.email}
                                             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                                         />
                                     </div>
+
                                     <div>
-                                        <label className="block text-sm font-medium text-slate-600 mb-2">
+                                        <label htmlFor="phone" className="block text-sm font-medium text-slate-600 mb-2">
                                             WhatsApp / Contact Number <span className="text-red-500">*</span>
                                         </label>
                                         <input
                                             type="tel"
+                                            id="phone"
                                             required
                                             className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-slate-50 text-slate-900 placeholder:text-slate-400 focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all"
                                             placeholder="+91 9876543210"
@@ -101,42 +109,57 @@ const Scheduler = () => {
                                             onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                                         />
                                     </div>
+
                                     <div>
-                                        <label className="block text-sm font-medium text-slate-600 mb-2">
-                                            Age Group <span className="text-red-500">*</span>
+                                        <label htmlFor="age" className="block text-sm font-medium text-slate-600 mb-2">
+                                            Age Group
                                         </label>
-                                        <select
-                                            className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-slate-50 text-slate-900 focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all appearance-none cursor-pointer"
-                                            value={formData.age}
-                                            onChange={(e) => setFormData({ ...formData, age: e.target.value })}
-                                        >
-                                            <option value="18-24">18-24</option>
-                                            <option value="25-34">25-34</option>
-                                            <option value="35-44">35-44</option>
-                                            <option value="45+">45+</option>
-                                        </select>
+                                        <div className="relative">
+                                            <select
+                                                id="age"
+                                                className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-slate-50 text-slate-900 focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all appearance-none cursor-pointer"
+                                                value={formData.age}
+                                                onChange={(e) => setFormData({ ...formData, age: e.target.value })}
+                                            >
+                                                <option value="18-24">18-24</option>
+                                                <option value="25-34">25-34</option>
+                                                <option value="35-44">35-44</option>
+                                                <option value="45+">45+</option>
+                                            </select>
+                                            <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
+                                                ▼
+                                            </div>
+                                        </div>
                                     </div>
+
                                     <div>
-                                        <label className="block text-sm font-medium text-slate-600 mb-2">
+                                        <label htmlFor="gender" className="block text-sm font-medium text-slate-600 mb-2">
                                             Gender <span className="text-red-500">*</span>
                                         </label>
-                                        <select
-                                            required
-                                            className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-slate-50 text-slate-900 focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all appearance-none cursor-pointer"
-                                            value={formData.gender}
-                                            onChange={(e) => setFormData({ ...formData, gender: e.target.value })}
+                                        <div className="relative">
+                                            <select
+                                                id="gender"
+                                                required
+                                                className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-slate-50 text-slate-900 focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all appearance-none cursor-pointer"
+                                                value={formData.gender}
+                                                onChange={(e) => setFormData({ ...formData, gender: e.target.value })}
                                             >
-                                            <option value="">Select Gender</option>
-                                            <option value="Male">Male</option>
-                                            <option value="Female">Female</option>
-                                            <option value="Other">Other</option>
-                                            <option value="Prefer not to say">Prefer not to say</option>
-                                        </select>
+                                                <option value="" disabled>Select gender</option>
+                                                <option value="Male">Male</option>
+                                                <option value="Female">Female</option>
+                                                <option value="Other">Other</option>
+                                                <option value="Prefer not to say">Prefer not to say</option>
+                                            </select>
+                                            <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
+                                                ▼
+                                            </div>
+                                        </div>
                                     </div>
+
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                         <div>
                                             <label className="block text-sm font-medium text-slate-600 mb-2">
-                                                Preferred Date <span className="text-red-500">*</span>
+                                                Preferred Date
                                             </label>
                                             <DatePicker
                                                 selected={formData.date}
@@ -147,7 +170,7 @@ const Scheduler = () => {
                                         </div>
                                         <div>
                                             <label htmlFor="time" className="block text-sm font-medium text-slate-600 mb-2">
-                                                Time Slot <span className="text-red-500">*</span>
+                                                Time Slot
                                             </label>
                                             <div className="relative">
                                                 <select
@@ -175,19 +198,18 @@ const Scheduler = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <p className="text-xs text-slate-500 text-center leading-relaxed bg-slate-50 border border-slate-200 rounded-lg p-3">
-                                        <strong>Note:</strong> Submission may take a few moments. Please be patient while we process your request. 
-                                        After confirmation, our community details and connection information will be shared with you via email or text message. 
-                                        Thank you for registering with Solace Hub.
+
+                                    <p className="text-sm text-slate-500 italic">
+                                        Submission may take a few moments. Please be patient while we process your request. After confirmation, our community details and connection information will be shared with you via email or text message. Thank you for registering with Solace Hub.
                                     </p>
+
                                     <button
                                         type="submit"
                                         disabled={loading}
-                                        className="w-full py-4 font-bold rounded-xl mt-4 bg-teal-600 hover:bg-teal-700 text-white shadow-md hover:shadow-lg transition-all"
+                                        className={`w-full py-4 font-bold rounded-xl mt-4 bg-teal-600 hover:bg-teal-700 text-white shadow-md hover:shadow-lg transition-all ${loading ? 'opacity-70 cursor-not-allowed' : ''}`}
                                     >
-                                        {loading ? "Submitting..." : "Schedule Now"}
+                                        {loading ? 'Submitting...' : 'Schedule Now'}
                                     </button>
-
                                 </form>
                             )}
                         </div>
