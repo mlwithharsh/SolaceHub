@@ -166,8 +166,8 @@ const AdminPanel = () => {
                                 <tr key={a.id} className="hover:bg-white/[0.03] transition-colors">
                                     <td className="px-6 py-4 text-sm font-medium text-white">{a.full_name}</td>
                                     <td className="px-6 py-4 text-sm text-solace-text-secondary">{a.email}</td>
-                                    <td className="px-6 py-4 text-sm text-white/70">{a.phone}</td>
                                     <td className="px-6 py-4 text-sm text-white/70">{a.gender}</td>
+                                    <td className="px-6 py-4 text-sm text-white/70">{a.phone}</td>
                                     <td className="px-6 py-4 text-sm">
                                         <a href={a.linkedin_url} target="_blank" rel="noopener noreferrer" className="text-solace-neon-blue hover:text-solace-neon-blue/80 underline">Profile</a>
                                     </td>
