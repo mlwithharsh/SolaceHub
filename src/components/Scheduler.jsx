@@ -133,33 +133,31 @@ const Scheduler = () => {
                                             <option value="Prefer not to say">Prefer not to say</option>
                                         </select>
                                     </div>
-
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                        <label className="block text-sm font-medium text-slate-600 mb-2">
-                                            Preferred Date <span className="text-red-500">*</span>
-                                        </label>
-
-                                        <DatePicker
-                                            selected={formData.date}
-                                            onChange={(date) => setFormData({ ...formData, date })}
-                                            className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-slate-50 text-slate-900 focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all cursor-pointer"
-                                            minDate={new Date()}
-                                        />
+                                        <div>
+                                            <label className="block text-sm font-medium text-slate-600 mb-2">
+                                                Preferred Date <span className="text-red-500">*</span>
+                                            </label>
+                                            <DatePicker
+                                                selected={formData.date}
+                                                onChange={(date) => setFormData({ ...formData, date })}
+                                                className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-slate-50 text-slate-900 focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all cursor-pointer"
+                                                minDate={new Date()}
+                                                />
                                         </div>
                                         <div>
-                                            <label htmlFor="time" className="block text-sm font-medium text-slate-600 mb-2">
+                                            <label className="block text-sm font-medium text-slate-600 mb-2">
                                                 Time Slot <span className="text-red-500">*</span>
                                             </label>
                                             <div className="relative">
                                                 <select
-                                                    id="time"
-                                                    className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-slate-50 text-slate-900 focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all appearance-none cursor-pointer"
                                                     value={formData.timeSlot}
                                                     onChange={(e) => setFormData({ ...formData, timeSlot: e.target.value })}
-                                                >
+                                                    className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-slate-50 text-slate-900 focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all appearance-none cursor-pointer"
+                                                    >
                                                     <option value="10:00 AM">10:00 AM</option>
                                                     <option value="11:00 AM">11:00 AM</option>
-                                                    <option value="12:00 AM">12:00 AM</option>
+                                                    <option value="12:00 PM">12:00 PM</option>
                                                     <option value="1:00 PM">1:00 PM</option>
                                                     <option value="2:00 PM">2:00 PM</option>
                                                     <option value="3:00 PM">3:00 PM</option>
@@ -170,9 +168,9 @@ const Scheduler = () => {
                                                     <option value="8:00 PM">8:00 PM</option>
                                                     <option value="9:00 PM">9:00 PM</option>
                                                 </select>
-                                        <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
-                                            ▼
-                                        </div>
+                                                <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
+                                                    ▼
+                                                </div>
                                     </div>
                                     <p className="text-xs text-slate-500 text-center leading-relaxed bg-slate-50 border border-slate-200 rounded-lg p-3">
                                         <strong>Note:</strong> Submission may take a few moments. Please be patient while we process your request. 
