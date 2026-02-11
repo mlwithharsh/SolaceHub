@@ -18,8 +18,7 @@ import Disclaimer from './pages/Disclaimer'
 import SafetyEthics from './pages/SafetyEthics'
 import AdvisorTerms from './pages/AdvisorTerms'
 import Contact from './pages/Contact'
-import CookieNotice from './components/CookieNotice'
-
+import CookieNotice from "./components/CookieNotice";
 // Wrapper for scrolling to top on route change
 const ScrollToTop = () => {
   const { pathname } = useLocation();
