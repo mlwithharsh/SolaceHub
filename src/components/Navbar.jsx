@@ -1,4 +1,5 @@
 import React from 'react';
+import logo from '../assets/origa-logo.png';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
@@ -25,7 +26,7 @@ const Navbar = () => {
                     <div className="flex items-center">
                         <Link to="/" className="flex-shrink-0 flex items-center gap-2">
                             <div className="w-8 h-8 bg-solace-neon-green rounded-lg shadow-neon-green flex items-center justify-center">
-                                <span className="text-white font-bold">O</span>
+                                <img src={logo} alt="Origa logo" className="w-8 h-8 object-contain" />
                             </div>
                             <span className="text-white font-bold text-xl tracking-tight">Origa</span>
                         </Link>
