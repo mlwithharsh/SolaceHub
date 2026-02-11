@@ -26,7 +26,11 @@ const Navbar = () => {
                     <div className="flex items-center">
                         <Link to="/" className="flex-shrink-0 flex items-center gap-2">
                             <div className="w-8 h-8 bg-solace-neon-green rounded-lg shadow-neon-green flex items-center justify-center">
-                                <img src={logo} alt="Origa logo" className="w-8 h-8 object-contain" />
+                                <img
+                                    src={logo}
+                                    alt="Origa logo"
+                                    className="h-[1.25em] w-[1.25em] object-contain"
+                                    />
                             </div>
                             <span className="text-white font-bold text-xl tracking-tight">Origa</span>
                         </Link>
