@@ -12,13 +12,13 @@ import ErrorBoundary from './components/ErrorBoundary'
 import AdminPanel from './AdminPanel'
 import AdminLogin from './components/AdminLogin'
 import AdminGuard from './components/AdminGuard'
-
 import TermsPage from './pages/TermsPage'
 import PrivacyPolicy from './pages/PrivacyPolicy'
 import Disclaimer from './pages/Disclaimer'
 import SafetyEthics from './pages/SafetyEthics'
 import AdvisorTerms from './pages/AdvisorTerms'
 import Contact from './pages/Contact'
+import CookieNotice from './components/CookieNotice'
 
 // Wrapper for scrolling to top on route change
 const ScrollToTop = () => {
@@ -74,8 +74,9 @@ function App() {
               <Route path="/contact" element={<Contact />} />
             </Routes>
           </div>
-
+          <CookieNotice />
           <Footer />
+          
         </div>
       </BrowserRouter>
     </ErrorBoundary>
