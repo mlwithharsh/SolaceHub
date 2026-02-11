@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../assets/origa-logo.png';
+import logo from '../assets/origa-logo.svg';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
