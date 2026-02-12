@@ -35,8 +35,8 @@ Backend API
 - Mobile responsive UI
 - Instant confirmation
 
-## 🧑‍⚕️ Advisor Side
-- Advisor application form
+## 🧑‍⚕️ Counsellor Side
+- Counsellor application form
 - LinkedIn + contact details
 - Stored securely in database
 - <img width="1812" height="885" alt="image" src="https://github.com/user-attachments/assets/bb3c7566-43bc-432d-97a0-6a772b00c241" />
