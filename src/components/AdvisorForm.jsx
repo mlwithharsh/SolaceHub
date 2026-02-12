@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const AdvisorForm = () => {
+const CounsellorForm = () => {
     const [formData, setFormData] = useState({
         fullName: '',
         age: '',
@@ -19,7 +19,7 @@ const AdvisorForm = () => {
         
 
         try {
-            await fetch("https://solacehub-bg21.onrender.com/api/advisors", {
+            await fetch("https://solacehub-bg21.onrender.com/api/counsellors", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -32,7 +32,7 @@ const AdvisorForm = () => {
         } catch (err) {
             console.error(err);
             alert("Submission failed");
-        }finally {
+        } finally {
             setLoading(false);
         }
     };
@@ -46,7 +46,7 @@ const AdvisorForm = () => {
         <section className="py-20 relative overflow-hidden bg-slate-50">
             <div className="container mx-auto px-6 relative z-10">
                 <div className="text-center mb-12">
-                    <h2 className="text-3xl font-bold text-slate-900 mb-4">Join Solace Hub as an Advisor</h2>
+                    <h2 className="text-3xl font-bold text-slate-900 mb-4">Join Solace Hub as an Counsellor</h2>
                     <p className="text-slate-600 max-w-2xl mx-auto">
                         Help us bring real empathy back to a digital world. If you are a good listener with a kind heart, we want you.
                     </p>
@@ -61,7 +61,7 @@ const AdvisorForm = () => {
                                 </div>
                                 <h3 className="text-2xl font-bold text-slate-800 mb-2">Application Submitted Successfully</h3>
                                 <p className="text-slate-500">
-                                    Thank you for applying to join Solace Hub as an Advisor. <br />
+                                    Thank you for applying to join Solace Hub as an Counsellor. <br />
                                     Our team will review your profile and you will receive a verification email shortly with the next steps.
                                 </p>
                                 <p className="text-slate-500 mt-4 italic">
@@ -161,9 +161,9 @@ const AdvisorForm = () => {
                                         type="submit"
                                         disabled={loading}
                                         className={`w-full py-4 font-bold rounded-xl mt-4 text-white shadow-md transition-all
-                                        ${loading? "bg-slate-400 cursor-not-allowed": "bg-teal-600 hover:bg-teal-700 hover:shadow-lg"}`}
+                                        ${loading ? "bg-slate-400 cursor-not-allowed" : "bg-teal-600 hover:bg-teal-700 hover:shadow-lg"}`}
                                         >
-                                        {loading ? "Submitting..." : "Apply as Advisor"}
+                                        {loading ? "Submitting..." : "Apply as Counsellor"}
                                     </button>
                                 </div>
                             </form>
@@ -175,4 +175,4 @@ const AdvisorForm = () => {
     );
 };
 
-export default AdvisorForm;
+export default CounsellorForm;
