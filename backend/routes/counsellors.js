@@ -25,7 +25,7 @@ router.post("/", async (req, res) => {
 
 router.get("/", authMiddleware, async (req, res) => {
     try {
-        const result = await db.query("SELECT * FROM advisors ORDER BY created_at DESC");
+        const result = await db.query("SELECT * FROM counsellors ORDER BY created_at DESC");
         res.json(result.rows);
     } catch (err) {
         console.error(err);
