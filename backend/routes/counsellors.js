@@ -3,16 +3,16 @@ const db = require("../db");
 const authMiddleware = require("../authMiddleware");
 
 const router = express.Router();
-console.log("🔥Counsellor route file LOADED");
+console.log("🔥 counsellors route file LOADED");
 
 router.post("/", async (req, res) => {
     try {
-        const { fullName, age, linkedin, email,gender , phone } = req.body;
+        const { fullName, age, linkedin, email, gender, phone } = req.body;
 
         await db.query(
-            `INSERT INTO counsellors(full_name, age, linkedin_url, email,gender, contact_number)
+            `INSERT INTO advisors (full_name, age, linkedin_url, email,gender, contact_number)
              VALUES ($1, $2, $3, $4, $5 ,$6)`,
-            [fullName, age, linkedin, email, gender,phone]
+            [fullName, age, linkedin, email, gender, phone]
         );
 
         res.json({ success: true });
@@ -29,7 +29,7 @@ router.get("/", authMiddleware, async (req, res) => {
         res.json(result.rows);
     } catch (err) {
         console.error(err);
-        res.status(500).json({ error: "Failed to fetch advisors" });
+        res.status(500).json({ error: "Failed to fetch counsellors" });
     }
 });
 
