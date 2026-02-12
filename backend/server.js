@@ -6,7 +6,7 @@ const cors = require("cors");
 const jwt = require("jsonwebtoken");
 const db = require("./db");
 const sessionRoutes = require("./routes/sessions");
-const advisorRoutes = require("./routes/advisors");
+const counsellorRoutes = require("./routes/counsellors");
 const app = express();
 
 app.set("trust proxy", 1);
@@ -53,8 +53,7 @@ app.post("/api/admin/login", (req, res) => {
 });
 
 app.use("/api/sessions", sessionRoutes);
-app.use("/api/advisors", advisorRoutes);
-
+app.use("/api/counsellors", counsellorRoutes);
 app.get("/", (req, res) => {
     res.send("Backend running");
 });
