@@ -10,7 +10,7 @@ router.post("/", async (req, res) => {
         const { fullName, age, linkedin, email, gender, phone } = req.body;
 
         await db.query(
-            `INSERT INTO advisors (full_name, age, linkedin_url, email,gender, contact_number)
+            `INSERT INTO counsellors (full_name, age, linkedin_url, email,gender, contact_number)
              VALUES ($1, $2, $3, $4, $5 ,$6)`,
             [fullName, age, linkedin, email, gender, phone]
         );
