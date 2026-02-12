@@ -5,7 +5,7 @@ const API = import.meta.env.VITE_API_URL; // ✅ production safe
 
 const AdminPanel = () => {
     const [sessions, setSessions] = useState([]);
-    const [advisors, setAdvisors] = useState([]);
+    const [counsellors, setCounsellors] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const navigate = useNavigate();
@@ -27,28 +27,27 @@ const AdminPanel = () => {
                     "Content-Type": "application/json"
                 };
 
-                const [sessionsRes, advisorsRes] = await Promise.all([
+                const [sessionsRes, counsellorsRes] = await Promise.all([
                     fetch(`${API}/api/sessions`, { headers }),
-                    fetch(`${API}/api/advisors`, { headers })
+                    fetch(`${API}/api/counsellors`, { headers })
                 ]);
 
                 // expired token
-                if (sessionsRes.status === 401 || advisorsRes.status === 401) {
+                if (sessionsRes.status === 401 || counsellorsRes.status === 401) {
                     localStorage.removeItem('adminToken');
                     navigate('/admin-login');
                     return;
                 }
 
-                if (!sessionsRes.ok || !advisorsRes.ok) {
+                if (!sessionsRes.ok || !counsellorsRes.ok) {
                     throw new Error('Failed to fetch data from the server');
                 }
 
                 const sessionsData = await sessionsRes.json();
-                const advisorsData = await advisorsRes.json();
+                const counsellorsData = await counsellorsRes.json();
 
                 setSessions(sessionsData);
-                setAdvisors(advisorsData);
-
+                setCounsellors(counsellorsData);
             } catch (err) {
                 console.error(err);
                 setError(err.message);
@@ -104,8 +103,8 @@ const AdminPanel = () => {
                     <p className="text-4xl font-bold text-white group-hover:text-solace-neon-green transition-colors">{sessions.length}</p>
                 </div>
                 <div className="glass-panel p-6 border border-white/10 hover:border-solace-neon-green/30 transition-all group">
-                    <p className="text-solace-text-secondary text-sm font-medium uppercase tracking-wider mb-1">Advisor Applications</p>
-                    <p className="text-4xl font-bold text-white group-hover:text-solace-neon-green transition-colors">{advisors.length}</p>
+                    <p className="text-solace-text-secondary text-sm font-medium uppercase tracking-wider mb-1">Counsellor Applications</p>
+                    <p className="text-4xl font-bold text-white group-hover:text-solace-neon-green transition-colors">{counsellors.length}</p>
                 </div>
             </div>
 
@@ -144,10 +143,10 @@ const AdminPanel = () => {
                 </div>
             </div>
 
-            {/* Advisors Table */}
+            {/* Counsellors Table */}
             <div className="glass-panel mb-16 border border-white/10 overflow-hidden shadow-2xl">
                 <div className="px-6 py-4 border-b border-white/10 bg-white/5">
-                    <h2 className="text-xl font-semibold text-white">Advisor Network</h2>
+                    <h2 className="text-xl font-semibold text-white">Counsellor Network</h2>
                 </div>
                 <div className="overflow-x-auto">
                     <table className="w-full text-left border-collapse">
@@ -174,7 +173,7 @@ const AdminPanel = () => {
                                     <td className="px-6 py-4 text-xs text-slate-500 text-right">{formatDate(a.created_at)}</td>
                                 </tr>
                             )) : (
-                                <tr><td colSpan="4" className="px-6 py-12 text-center text-solace-text-secondary italic">No advisor applications yet.</td></tr>
+                                <tr><td colSpan="4" className="px-6 py-12 text-center text-solace-text-secondary italic">No counsellor applications yet.</td></tr>
                             )}
                         </tbody>
                     </table>
