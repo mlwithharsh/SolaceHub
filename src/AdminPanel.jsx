@@ -20,6 +20,7 @@ const AdminPanel = () => {
             }
 
             try {
+                console.log('📡 Fetching from:', API);
                 setLoading(true);
 
                 const headers = {
@@ -32,6 +33,9 @@ const AdminPanel = () => {
                     fetch(`${API}/api/counsellors`, { headers })
                 ]);
 
+                console.log('📊 Sessions Status:', sessionsRes.status);
+                console.log('📊 Counsellors Status:', counsellorsRes.status);
+
                 // expired token
                 if (sessionsRes.status === 401 || counsellorsRes.status === 401) {
                     localStorage.removeItem('adminToken');
@@ -39,8 +43,16 @@ const AdminPanel = () => {
                     return;
                 }
 
-                if (!sessionsRes.ok || !counsellorsRes.ok) {
-                    throw new Error('Failed to fetch data from the server');
+                if (!sessionsRes.ok) {
+                    const errorText = await sessionsRes.text();
+                    console.error('❌ Sessions Fetch Error:', sessionsRes.status, errorText);
+                    throw new Error(`Sessions fetch failed: ${sessionsRes.status} ${errorText}`);
+                }
+
+                if (!counsellorsRes.ok) {
+                    const errorText = await counsellorsRes.text();
+                    console.error('❌ Counsellors Fetch Error:', counsellorsRes.status, errorText);
+                    throw new Error(`Counsellors fetch failed: ${counsellorsRes.status} ${errorText}`);
                 }
 
                 const sessionsData = await sessionsRes.json();
@@ -48,8 +60,9 @@ const AdminPanel = () => {
 
                 setSessions(sessionsData);
                 setCounsellors(counsellorsData);
+
             } catch (err) {
-                console.error(err);
+                console.error('🔴 Network/Fetch Error:', err);
                 setError(err.message);
             } finally {
                 setLoading(false);
@@ -161,7 +174,7 @@ const AdminPanel = () => {
                             </tr>
                         </thead>
                         <tbody className="divide-y divide-white/5">
-                            {advisors.length > 0 ? advisors.map((a) => (
+                            {counsellors.length > 0 ? counsellors.map((a) => (
                                 <tr key={a.id} className="hover:bg-white/[0.03] transition-colors">
                                     <td className="px-6 py-4 text-sm font-medium text-white">{a.full_name}</td>
                                     <td className="px-6 py-4 text-sm text-solace-text-secondary">{a.email}</td>
