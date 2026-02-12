@@ -1,6 +1,8 @@
 const express = require("express");
 const db = require("../db");
 const authMiddleware = require("../authMiddleware");
+const { sendNotification } = require("../utils/sendMail");
+
 
 const router = express.Router();
 console.log("🔥 counsellors route file LOADED");
@@ -13,6 +15,16 @@ router.post("/", async (req, res) => {
             `INSERT INTO counsellors (full_name, age, linkedin_url, email,gender, contact_number)
              VALUES ($1, $2, $3, $4, $5 ,$6)`,
             [fullName, age, linkedin, email, gender, phone]
+        );
+                await sendNotification(
+            "New Counsellor Application - SolaceHub",
+            `
+            <h2>New Counsellor Application</h2>
+            <p><b>Name:</b> ${fullName}</p>
+            <p><b>Email:</b> ${email}</p>
+            <p><b>Phone:</b> ${phone}</p>
+            <p><b>LinkedIn:</b> ${linkedin}</p>
+            `
         );
 
         res.json({ success: true });
