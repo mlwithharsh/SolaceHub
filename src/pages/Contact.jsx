@@ -18,7 +18,7 @@ const Contact = () => {
                 <div className="space-y-3">
                     <h2 className="text-2xl font-semibold text-slate-800">Email</h2>
                     <p>For general questions, feedback, or data privacy requests, reach us at:</p>
-                    <p className="text-teal-600 font-semibold">support@solacehub.example</p>
+                    <p className="text-teal-600 font-semibold">origa.net04@gmail.com</p>
                 </div>
 
                 <div className="space-y-3">
