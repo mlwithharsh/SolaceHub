@@ -5,7 +5,7 @@ import HeroSection from './components/HeroSection'
 import OverviewSection from './components/OverviewSection'
 import AnalyticsSection from './components/AnalyticsSection'
 import Scheduler from './components/Scheduler'
-import AdvisorForm from './components/AdvisorForm'
+import CounsellorForm from './components/CounsellorForm'
 import VisitorGate from './components/VisitorGate'
 import Footer from './components/Footer'
 import ErrorBoundary from './components/ErrorBoundary'
@@ -16,7 +16,7 @@ import TermsPage from './pages/TermsPage'
 import PrivacyPolicy from './pages/PrivacyPolicy'
 import Disclaimer from './pages/Disclaimer'
 import SafetyEthics from './pages/SafetyEthics'
-import AdvisorTerms from './pages/AdvisorTerms'
+import CounsellorTerms from './pages/CounsellorTerms'
 import Contact from './pages/Contact'
 import CookieNotice from "./components/CookieNotice";
 // Wrapper for scrolling to top on route change
@@ -51,8 +51,8 @@ function App() {
               {/* Home route shows the main landing sections including Scheduler */}
               <Route path="/" element={<HomePage />} />
 
-              {/* Advisor route shows the Advisor enrollment form */}
-              <Route path="/advisor" element={<AdvisorForm />} />
+              {/* Counsellor route shows the Counsellor enrollment form */}
+              <Route path="/counsellor" element={<CounsellorForm />} />
 
               {/* Admin Login */}
               <Route path="/admin-login" element={<AdminLogin />} />
@@ -65,7 +65,7 @@ function App() {
               } />
 
               {/* Keep other utility pages accessible */}
-              <Route path="/advisor-terms" element={<AdvisorTerms />} />
+              <Route path="/counsellor-terms" element={<CounsellorTerms />} />
               <Route path="/terms-and-conditions" element={<TermsPage />} />
               <Route path="/privacy" element={<PrivacyPolicy />} />
               <Route path="/disclaimer" element={<Disclaimer />} />
