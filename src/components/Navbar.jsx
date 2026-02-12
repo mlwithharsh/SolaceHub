@@ -24,15 +24,12 @@ const Navbar = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-16">
                     <div className="flex items-center">
-                        <Link to="/" className="flex-shrink-0 flex items-center gap-2">
-                            <div className="w-8 h-8 bg-solace-neon-green rounded-lg shadow-neon-green flex items-center justify-center">
-                                <img
-                                    src={logo}
-                                    alt="Origa logo"
-                                    className="h-320 md:h-360 object-contain"
-                                    />
-                            </div>
-                            <span className="text-white font-bold text-xl tracking-tight">Origa</span>
+                        <Link to="/" className="flex-shrink-0 flex items-center">
+                            <img
+                                src={logo}
+                                alt="Origa logo"
+                                className="h-45 w-auto object-contain py-1"
+                            />
                         </Link>
                     </div>
 
