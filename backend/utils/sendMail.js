@@ -1,4 +1,5 @@
 const nodemailer = require("nodemailer");
+
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
@@ -7,11 +8,11 @@ const transporter = nodemailer.createTransport({
   }
 });
 
-export const sendNotification = async (subject, html) => {
+const sendNotification = async (subject, html) => {
   try {
     await transporter.sendMail({
       from: "SolaceHub <origa.net04@gmail.com>",
-      to: "origanet04@gmail.com",
+      to: "origa.net04@gmail.com",
       subject,
       html
     });
@@ -21,3 +22,5 @@ export const sendNotification = async (subject, html) => {
     console.error("❌ Email failed:", err);
   }
 };
+
+module.exports = { sendNotification };
