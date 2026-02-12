@@ -3,14 +3,14 @@ const db = require("../db");
 const authMiddleware = require("../authMiddleware");
 
 const router = express.Router();
-console.log("🔥 advisors route file LOADED");
+console.log("🔥Counsellor route file LOADED");
 
 router.post("/", async (req, res) => {
     try {
         const { fullName, age, linkedin, email,gender , phone } = req.body;
 
         await db.query(
-            `INSERT INTO advisors (full_name, age, linkedin_url, email,gender, contact_number)
+            `INSERT INTO counsellors(full_name, age, linkedin_url, email,gender, contact_number)
              VALUES ($1, $2, $3, $4, $5 ,$6)`,
             [fullName, age, linkedin, email, gender,phone]
         );
