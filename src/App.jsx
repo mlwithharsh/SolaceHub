@@ -27,7 +27,6 @@ const ScrollToTop = () => {
   }, [pathname]);
   return null;
 }
-
 const HomePage = () => (
   <>
     <HeroSection />
