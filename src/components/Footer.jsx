@@ -21,10 +21,10 @@ const Footer = () => {
                         <ul className="space-y-2 text-sm text-slate-400">
                             <li>
                                 <Link
-                                    to="/advisor-terms"
+                                    to="/counsellor-terms"
                                     className="hover:text-teal-400 hover:underline underline-offset-4 transition-colors"
                                 >
-                                    Join as Advisor
+                                    Join as Counsellor
                                 </Link>
                             </li>
                             <li>
@@ -67,10 +67,10 @@ const Footer = () => {
                             </li>
                             <li>
                                 <Link
-                                    to="/advisor-terms"
+                                    to="/counsellor-terms"
                                     className="hover:text-teal-400 hover:underline underline-offset-4 transition-colors"
                                 >
-                                    Advisor Ethics
+                                    Counsellor Ethics
                                 </Link>
                             </li>
                             <li>
