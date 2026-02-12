@@ -29,7 +29,7 @@ const Navbar = () => {
                                 <img
                                     src={logo}
                                     alt="Origa logo"
-                                    className="h-32 md:h-36 object-contain"
+                                    className="h-320 md:h-360 object-contain"
                                     />
                             </div>
                             <span className="text-white font-bold text-xl tracking-tight">Origa</span>
