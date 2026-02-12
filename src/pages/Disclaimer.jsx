@@ -17,8 +17,8 @@ const Disclaimer = () => {
                 <ul className="list-disc pl-5 space-y-4">
                     <li>Solace Hub is <strong>not a healthcare provider</strong> or medical service.</li>
                     <li>No doctor-patient relationship is formed through the use of this site.</li>
-                    <li>Advisors are volunteers or peer supporters, not necessarily licensed professionals.</li>
-                    <li>Reliance on any information provided by Solace Hub or its Advisors is solely at your own risk.</li>
+                    <li>Counsellors are volunteers or peer supporters, not necessarily licensed professionals.</li>
+                    <li>Reliance on any information provided by Solace Hub or its Counsellors is solely at your own risk.</li>
                 </ul>
 
                 <p className="pt-4 font-semibold text-slate-800">
