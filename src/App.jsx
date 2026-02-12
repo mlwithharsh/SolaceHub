@@ -6,7 +6,6 @@ import OverviewSection from './components/OverviewSection'
 import AnalyticsSection from './components/AnalyticsSection'
 import Scheduler from './components/Scheduler'
 import CounsellorForm from './components/CounsellorForm'
-import VisitorGate from './components/VisitorGate'
 import Footer from './components/Footer'
 import ErrorBoundary from './components/ErrorBoundary'
 import AdminPanel from './AdminPanel'
@@ -42,7 +41,6 @@ function App() {
       <BrowserRouter>
         <ScrollToTop />
         <div className="font-sans text-white bg-solace-bg min-h-screen flex flex-col">
-          <VisitorGate />
           <Navbar />
 
           <div className="flex-grow">
