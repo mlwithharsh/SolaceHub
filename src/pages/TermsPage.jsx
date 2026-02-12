@@ -25,7 +25,7 @@ const TermsPage = () => {
                         </p>
                     </div>
                     <p className="mt-4">
-                        Our "Advisors" are empathetic listeners, not licensed therapists or clinicians.
+                        Our "Counsellors" are empathetic listeners, not licensed therapists or clinicians.
                         Always seek the advice of your physician or qualified mental health provider with any questions you may have regarding a medical condition.
                     </p>
                 </section>
@@ -36,7 +36,7 @@ const TermsPage = () => {
                     <h2 className="text-2xl font-semibold text-slate-800 mb-4">3. User Responsibilities</h2>
                     <ul className="list-disc pl-5 space-y-2">
                         <li>You must be at least 18 years of age to use this platform.</li>
-                        <li>You agree to interact respectfully with Advisors and other users.</li>
+                        <li>You agree to interact respectfully with Counsellors and other users.</li>
                         <li>You will not use the platform for any illegal or unauthorized purpose.</li>
                         <li>You acknowledge that conversations are for emotional support only.</li>
                     </ul>
