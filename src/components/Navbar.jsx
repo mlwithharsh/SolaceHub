@@ -28,7 +28,7 @@ const Navbar = () => {
                             <img
                                 src={logo}
                                 alt="Origa logo"
-                                className="h-29 w-auto object-contain py-1"
+                                className="h-32 w-auto object-contain py-1"
                             />
                         </Link>
                     </div>
