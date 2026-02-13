@@ -1,7 +1,6 @@
 const express = require("express");
 const db = require("../db");
 const authMiddleware = require("../authMiddleware");
-const { sendNotification } = require("../utils/sendMail");
 
 
 const router = express.Router();
@@ -24,16 +23,7 @@ router.post("/", async (req, res) => {
     );
 
     console.log("✅ INSERT SUCCESS");
-    await sendNotification(
-      "New Session Booking - SolaceHub",
-      `
-        <h2>New Session Booked</h2>
-        <p><b>Name:</b> ${name}</p>
-        <p><b>Email:</b> ${email}</p>
-        <p><b>Date:</b> ${formattedDate}</p>
-        <p><b>Time:</b> ${timeSlot}</p>
-        `
-    );
+
 
     res.json({ success: true });
 
