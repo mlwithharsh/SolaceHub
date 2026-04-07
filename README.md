@@ -89,6 +89,7 @@ Backend API
 ---
 
 # 📂 Project Structure
+```
 SolaceHub/
 │
 ├── backend/
@@ -107,7 +108,7 @@ SolaceHub/
 │ └── AdvisorForm.jsx
 │
 └── README.md
-
+```
 
 ---
 
