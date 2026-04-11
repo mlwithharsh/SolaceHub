@@ -173,7 +173,7 @@ Solace Hub is not just a product — it’s a safe digital space for people who 
 
 ---
 
-### Powered by Origa 🚀
+### Powered by Origa 🚀...
 
 
 
